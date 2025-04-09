@@ -25,6 +25,10 @@ import dropdown_icon from './dropdown_icon.png'
 import cross_icon from './cross_icon.png'
 import star_icon from './star_icon.png'
 import star_dull_icon from './star_dull_icon.png'
+import bin_icon from './bin_icon.png'
+import creditcard_logo from './creditcard_logo.png'
+import paypal_logo from './paypal_logo.png'
+import googlepay_logo from './googlepay_logo.png'
 
 export const assets = {
     logo,
@@ -36,7 +40,11 @@ export const assets = {
     dropdown_icon,
     cross_icon,
     star_icon,
-    star_dull_icon
+    star_dull_icon,
+    bin_icon,
+    creditcard_logo,
+    paypal_logo,
+    googlepay_logo
 }
 
 export const products = [
