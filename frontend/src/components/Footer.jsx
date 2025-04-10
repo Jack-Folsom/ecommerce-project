@@ -4,7 +4,7 @@ import { assets } from '../assets/assets'
 const Footer = () => {
   return (
     <div>
-      <div>
+      <div className='mt-40'>
         <hr />
         <p className='py-5 text-sm text-center'>E-Commerce Project : Jack Folsom</p>
       </div>
