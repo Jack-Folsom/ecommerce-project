@@ -13,6 +13,8 @@ const ShopContextProvider = (props) => {
     const [showSearch,setShowSearch] = useState(false);
     const [cartItems,setCartItems] = useState({});
     const navigate = useNavigate();
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState('');
 
     const addToCart = async (itemId,size) => {
         if (!size) {
@@ -83,12 +85,18 @@ const ShopContextProvider = (props) => {
         return totalAmount;
     }
 
+    const login = async (loginEmail,loginPassword) => {
+        setEmail(loginEmail);
+        setPassword(loginPassword);
+    }
+
     const value = {
         products, currency, delivery_fee,
         search,setSearch,showSearch,setShowSearch,
         cartItems,addToCart,
         getCartCount,updateQuantity,
-        getCartAmount, navigate
+        getCartAmount, navigate,
+        email,password,login
     }
 
     return (

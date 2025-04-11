@@ -1,8 +1,22 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { ShopContext } from '../context/ShopContext';
 
 const Login = () => {
 
-  const [currentState, setCurrentState] = useState('Sign Up');
+  const [currentState, setCurrentState] = useState('Login');
+  const {login,navigate} = useContext(ShopContext);
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
@@ -15,8 +29,8 @@ const Login = () => {
         <hr className='border-none h-[1.5px] w-8 bg-gray-800'/>
       </div>
       {currentState === 'Login' ? '' : <input type="text" className='w-full px-3 py-2 border border-gray-800' placeholder='Name' required/>}
-      <input type="email" className='w-full px-3 py-2 border border-gray-800' placeholder='email@account.com' required/>
-      <input type="password" className='w-full px-3 py-2 border border-gray-800' placeholder='Password' required/>
+      <input name='email' type="email" value={formData.email} onChange={handleChange} className='w-full px-3 py-2 border border-gray-800' placeholder='email@account.com' required/>
+      <input name='password' type="password" value={formData.password} onChange={handleChange} className='w-full px-3 py-2 border border-gray-800' placeholder='Password' required/>
       <div className='w-full flex justify-between text-sm mt-[-8px]'>
         <p className='cursor-pointer'>Forgot Password?</p>
         {
@@ -25,7 +39,7 @@ const Login = () => {
           : <p onClick={()=>setCurrentState('Login')} className='cursor-pointer'>Login</p>
         }
       </div>
-      <button className='bg-black text-white font-light px-8 py-2 mt-4'>{currentState === 'Login' ? 'Sign In' : 'Sign Up'}</button>
+      <button onClick={()=>{login(formData.email,formData.password); navigate('/profile');}} type="submit" className='bg-black text-white font-light px-8 py-2 mt-4'>{currentState === 'Login' ? 'Sign In' : 'Sign Up'}</button>
     </form>
   )
 }
