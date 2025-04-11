@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <div className='flex items-center justify-between py-5 font-medium'>
-        <Link to='/home'>
+        <Link to='/'>
             <img src={assets.logo} className='w-36' alt="" />
         </Link>
         <div className='flex items-center gap-6'>
@@ -25,7 +25,7 @@ const Navbar = () => {
                             ? <Link to='/profile'><p className='cursor-pointer hover:text-black'>Profile</p></Link>
                             : <Link to='/login'><p className='cursor-pointer hover:text-black'>Profile</p></Link>
                         }
-                        <Link to='/home'><p onClick={()=>login('','')} className='cursor-pointer hover:text-black'>Logout</p></Link>
+                        <Link to='/'><p onClick={()=>login('','')} className='cursor-pointer hover:text-black'>Logout</p></Link>
                     </div>
                 </div>
             </div>
