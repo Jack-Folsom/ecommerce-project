@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { products } from "../assets/assets";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -8,11 +8,13 @@ export const ShopContext = createContext();
 const ShopContextProvider = (props) => {
 
     const currency = '$';
-    const delivery_fee = 10;
+    const delivery_fee = 50;
+    const tax_rate = 0.065;
     const [search,setSearch] = useState('');
     const [showSearch,setShowSearch] = useState(false);
     const [cartItems,setCartItems] = useState({});
     const navigate = useNavigate();
+    const [name,setName] = useState('USERNAME');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
 
@@ -85,18 +87,21 @@ const ShopContextProvider = (props) => {
         return totalAmount;
     }
 
-    const login = async (loginEmail,loginPassword) => {
+    const login = async (loginName,loginEmail,loginPassword) => {
+        if (loginName != '') {
+            setName(loginName);
+        }
         setEmail(loginEmail);
         setPassword(loginPassword);
     }
 
     const value = {
-        products, currency, delivery_fee,
+        products, currency, delivery_fee, tax_rate,
         search,setSearch,showSearch,setShowSearch,
         cartItems,addToCart,
         getCartCount,updateQuantity,
         getCartAmount, navigate,
-        email,password,login
+        name,email,password,login
     }
 
     return (

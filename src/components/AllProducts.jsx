@@ -80,7 +80,7 @@ const AllProducts = () => {
         <div className='text-center py-8 text-3xl'>
             <Title text1={'ALL'} text2={'RUGS'} />
             <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Browse our entire catalog of rug designs with all the patterns, colors, and textures you can imagine.
             </p>
         </div>
 
