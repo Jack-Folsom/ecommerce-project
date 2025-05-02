@@ -27,9 +27,9 @@ const Cart = () => {
           }
         }
       }
+      setCartData(tempData);
     } 
 
-    setCartData(tempData);
   },[cartItems,products])
 
   const emptyHandler = async () => {
